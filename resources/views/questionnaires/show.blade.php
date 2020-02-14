@@ -6,11 +6,22 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ $questionnaire->title }}</div>
-
                 <div class="card-body">
                     <a class="btn btn-dark" href="/questionnaires/{{ $questionnaire->id }}/question/create">Add new Question</a>
                 </div>
             </div>
+            @foreach ($questionnaire->questions as $question)
+            <div class="card mt-4">
+                <div class="card-header bg-secondary text-white">{{ $question->question }}</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        @foreach ($question->answares as $answare)
+                            <li class="list-group-item">{{ $answare->answare }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </div>

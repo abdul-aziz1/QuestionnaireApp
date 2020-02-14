@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Questionnaire;
+use App\User;
 
 class QuestionnairesController extends Controller
 {
@@ -29,6 +30,7 @@ class QuestionnairesController extends Controller
 
     public function show( Questionnaire $questionnaire)
     {
+        $questionnaire->load('questions.answares');
         return view('questionnaires.show', compact('questionnaire'));
     }
 }

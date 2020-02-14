@@ -14,15 +14,15 @@ class QuestionController extends Controller
 
     public function store(Questionnaire $questionnaire)
     {
-       // dd( request()->all() );
+        //dd( request()->all() );
         $data = request()->validate([
             'question.question' => 'required',
             'answares.*.answare' => 'required',
         ]);
 
-        $question = $questionnaire->question()->create($data['question']);
-        $question->answare()->createMany($data['answares']);
+        $question = $questionnaire->questions()->create($data['question']);
+        $question->answares()->createMany($data['answares']);
         //dd($data);
-        return redirect('/questuonnaire/'.$questionnaire->id);
+        return redirect('/questionnaires/'.$questionnaire->id);
     }
 }

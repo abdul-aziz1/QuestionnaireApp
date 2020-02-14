@@ -57,6 +57,8 @@ Route::get('/article/{article}', 'ArticlesController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 //Questionnaires
 Route::get('/questionnaires/create', 'QuestionnairesController@create');
 Route::post('/questionnaires', 'QuestionnairesController@store');
