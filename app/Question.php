@@ -13,7 +13,7 @@ class Question extends Model
         return $this->belongsTo(Questionnaire::class);
     }
 
-    public function answare()
+    public function answares()
     {
         return $this->hasMany(Answare::class);
     }
